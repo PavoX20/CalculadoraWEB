@@ -1,5 +1,5 @@
 # Calculadora básca con operaciones de:
--   Sumar
+-  Sumar
 - Restar
 - Multiplicar
 - Dividir
