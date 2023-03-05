@@ -7,3 +7,5 @@
 - Raíz Cuadrada
 
 Implementando Frontend con Angular y Backend con Node JS.
+
+Los requerimientos están en la imágen .png
