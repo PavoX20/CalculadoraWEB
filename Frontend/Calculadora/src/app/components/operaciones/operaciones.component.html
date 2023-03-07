@@ -1,0 +1,73 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6">
+            <h1 style="text-align: center;">Calculadora</h1>
+            <form #calculadoraForm="ngForm">
+                Valor 1:
+                <br>
+                <input type="text" name="valor1" #ngValor1="ngModel" [(ngModel)]="this.valor1" required pattern="^[0-9]\d*(\.\d+)?$">
+                    <span *ngIf="ngValor1.touched && !ngValor1.valid">
+                        <br>
+                        
+                        <h6 style="color: red;">*El valor 1 debe ser numérico</h6>
+                        
+                    </span>
+                
+
+                    <br>
+                    <br>
+                
+                <br>
+                <div *ngIf="!(this.operacion=='Raíz Cuadrada')">
+                    Valor 2:
+                    <br>
+                    <input  type="text" name="valor2" #ngValor2="ngModel" [(ngModel)]="this.valor2" required pattern="^[0-9]\d*(\.\d+)?$">
+                    <span *ngIf="ngValor2.touched && !ngValor2.valid">
+                        <br>
+                        
+                        <h6 style="color: red;">*El valor 2 es necesario</h6>
+                    </span>
+
+                </div>
+                
+                <br>
+                    <br>
+
+                <select style="width: 300px;" class="form-select" (change)="getSelectedValue($event)"  >
+                    <option selected> Selecciona la operación</option>
+                    <option  value="Suma" >Suma </option>
+                    <option  value="Resta">Resta</option>
+                    <option  value="Multiplicación">Multiplicación</option>
+                    <option  value="División">División</option>
+                    <option  value="Potencia">Potencia</option>
+                    <option  value="Raíz Cuadrada">Raíz Cuadrada</option>
+                </select>
+
+
+                <br><br>
+                <button class="btn btn-lg btn-primary" type="submit" [disabled]="!calculadoraForm.valid" (click)="guardarOperacion()">Enviar</button>
+                
+
+
+
+
+            </form>
+        </div>
+        <div class="col-lg-6">
+            <h1 style="text-align: center;">Historial</h1>
+
+            <br>
+            <br>
+
+            <li *ngFor="let operacion of this.historial" class="historial">
+                
+                    
+                    <h3>{{operacion.valor1}} {{operacion.operacion}} {{operacion.valor2}}  =  {{operacion.resultado}}</h3>
+                
+            </li>
+            
+
+        </div>
+    </div>
+</div>
+
